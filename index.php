@@ -1,4 +1,4 @@
-<?php
+ <?php
 require_once 'includes/gestionErreurs.inc.php';
 require_once 'modele/class.pdofestival.inc.php';
 include 'includes/pdo-debug.php';
@@ -26,6 +26,9 @@ switch ($uc) {
         break;
     case 'attribChambres':
         include './controleurs/c_AttributionChambres.php';
+        break;
+    case 'envoiMail':
+        include './controleurs/c_EnvoiMail.php';
         break;
 }
 require 'vues/v_fin.inc.php';
