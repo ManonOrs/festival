@@ -333,6 +333,26 @@ class PdoFestival
         $requetePrepare->execute();
         return $requetePrepare->fetch(PDO::FETCH_OBJ)->nom;
     }
+    
+        public function obtenirIdentiteResponsable($id)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT identiteResponsable FROM Groupe WHERE identiteResponsable=:uneIdentiteResponsable'
+        );
+        $requetePrepare->bindParam(':uneIdentiteResponsable', $id, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch(PDO::FETCH_OBJ)->nom;
+    }
+    
+    public function obtenirAdressePostal($id)
+    {
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'SELECT adressePostale FROM Groupe WHERE adressePostale=:uneAdressePostale'
+        );
+        $requetePrepare->bindParam(':uneAdressePostale', $id, PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch(PDO::FETCH_OBJ)->nom;
+    }
 
     // FONCTIONS RELATIVES AUX OFFRES
     // Met à jour (suppression, modification ou ajout) l'offre correspondant à l'id
@@ -530,4 +550,5 @@ class PdoFestival
         $res = $requetePrepare->fetch(PDO::FETCH_OBJ);
         return ($res) ? $res->nombreChambres : 0;
     }
+    
 }
