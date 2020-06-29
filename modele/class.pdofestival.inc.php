@@ -315,6 +315,15 @@ class PdoFestival
     }
 
     // FONCTIONS RELATIVES AUX GROUPES
+    Public function creerGroupe(){
+        $requetePrepare = PdoFestival::$monPdo->prepare(
+            'INSERT INTO `groupe` (`id`, `nom`, `identiteResponsable`, `adressePostale`, `nombrePersonnes`, `nomPays`, `hebergement`,`Email`)'
+                . 'VALUES (`g043`, `Groupedetest`, NULL, NULL, 40, `France`, `O`, `Emailtest@gmail.com`);'
+        );
+        $requetePrepare->execute();
+        return $requetePrepare->fetchAll(); 
+    }
+    
     public function obtenirReqIdNomGroupesAHeberger()
     {
         $requetePrepare = PdoFestival::$monPdo->prepare(
