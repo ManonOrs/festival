@@ -112,6 +112,7 @@ CREATE TABLE IF NOT EXISTS `groupe` (
   `nombrePersonnes` int(11) NOT NULL,
   `nomPays` varchar(40) NOT NULL,
   `hebergement` char(1) NOT NULL,
+  `Email` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
